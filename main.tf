@@ -32,7 +32,7 @@ module "eks" {
   version = "20.0.0"
 
   cluster_name    = var.cluster_name
-  cluster_version = "1.27"
+  cluster_version = "1.26"
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
@@ -44,8 +44,7 @@ module "eks" {
       desired_size = var.desired_capacity
       max_size     = 3
       min_size     = 1
-      ami_type       = "AL2_x86_64"
-      capacity_type = "ON_DEMAND" 
+      
       instance_types = [var.instance_type]
     }
   }
