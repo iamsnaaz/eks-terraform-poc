@@ -21,7 +21,7 @@ jobs:
       - name: Terraform Init
         run: terraform init
         env:
-          TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}   # optional but recommended
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}   # optional but recommended
 
       - name: Terraform Validate
         run: terraform validate
