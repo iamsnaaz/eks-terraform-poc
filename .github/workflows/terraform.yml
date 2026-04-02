@@ -23,5 +23,10 @@ jobs:
         env:
           TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}   # optional but recommended
 
+      - name: Terraform Plan
+        run: terraform plan
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
+
       - name: Terraform Validate
         run: terraform validate
