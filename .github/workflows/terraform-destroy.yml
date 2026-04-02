@@ -1,0 +1,27 @@
+name: Terraform Destroy
+
+on:
+  workflow_dispatch:   #  manual trigger only (safe)
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # Authenticate to Terraform Cloud
+      - name: Terraform Init
+        run: terraform init
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
+
+      # Destroy Infrastructure
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
