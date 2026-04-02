@@ -30,3 +30,8 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        env:
+          TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
