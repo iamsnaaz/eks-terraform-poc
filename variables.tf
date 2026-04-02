@@ -17,3 +17,7 @@ variable "desired_capacity" {
   description = "Number of worker nodes"
   type        = number
 }
+
+variable "eks_version" {
+  default = "1.29"
+}
